@@ -1,0 +1,221 @@
+Visualiseur des polices de caractères 2.8.0 (vfonts)
+****************************************************
+
+NOTA BENE :
+===========
+
+Depuis le 30 Mars 2008,
+c'est-à-dire depuis la version 2.5.0 inclusivement,
+le développement de cette application a été repris par Blueman,
+et ce, en accord avec la Licence GPL.
+Néanmoins, par soucis de l'auteur original, Oliver Cado,
+celui-ci est tenu au courant des derniers développements de VFonts.
+
+VFonts © 1998-2008, Olivier Cado et BlueMan
+
+Site web : http://www.blueman.name
+
+Site web : http://www.chez.com/ocado
+E-mail   : ocado@chez.com
+
+Pour signaler un bug, ou toute suggestion :
+-----------------------------------------
+
+Site web : http://www.blueman.name/me_contacter.php
+
+Objet : L'application VFonts
+
+
+Sommaire de ce document :
+*************************
+
+- A quoi sert ce logiciel ?
+- Fonctionnalités
+- Remerciements
+- Foire Aux Questions (FAQ)
+
+
+A quoi sert ce logiciel ?
+*************************
+
+Lorsqu'on rédige un document, qu'il soit destiné à être imprimé ou
+publié sur le web, on est souvent amené à choisir des polices de
+caractères. Avec un système de base, le faible nombre de polices
+installées simplifie le choix, mais il arrive qu'on doivent trouver
+LA fonte la plus adaptée parmi des centaines !
+
+C'est pourquoi il existe de nombreux logiciels qui aident à faire
+ce choix. Cependant, après en avoir utilisé plusieurs, j'ai décidé
+de réaliser un autre logiciel. En effet, la plupart des logiciels
+existants permettaient, en 1998, de visualiser des fontes, mais pas
+de les comparer une à une en affichant un échantillon des polices
+sélectionnées côte à côte (et non pas de toutes les polices sans
+possibilité de sélection). C'est donc l'originalité de ce visualiseur.
+
+Attention : il n'est *pas* possible de visualiser des polices non installées.
+
+
+Installation :
+**************
+
+Décompressez dans le dossier de votre choix, les 2 fichiers :
+
+- VFonts.exe			: l'exécutable
+- VFonts_Aide_Francais.rtf	: le fichier d'aide, qui est chargé par l'application
+
+Ces 2 fichiers sont nécessaires au bon fonctionnement de l'application.
+
+Si vous désirez des informations complémentaires, vous pouez aussi décompresser dans le
+même dossier :
+
+- VFonts - Lisez-moi.txt
+- VFonts - License.txt
+
+
+Sources :
+*********
+
+Les sources vous sont fournis en Delphi (delphi 5 et sup) dans le fichier Sources_280.zip
+
+
+Historique
+**********
+
+2008-04-16 : Version 2.8.0 -> Corrections mineures et ajout de fonctionnalité par BlueMan
+* Correction d'une coquille : texte "GNU" en "GPL".
+* Ajout d'une constante de date de version : kDateVersion
+* Ajout de la fonctionnalité de mémorisations de sélections personnalisées avec :
+	- Sauvegarde automatique dans le fichier VFonts.ini (dans le même rep. que l'application),
+	- Chargement automatique lors du lancement de VFonts,
+	- Possibilité d'enrichissement d'une sélection mémorisée,
+	- Possibilité de supression de certaines polices d'une sélection mémorisée,
+	- Possibilité de supression d'une sélection mémorisée.
+	- Support de l'ajout et surtout de la suppression de polices dans le dossier C:\Windows\Fonts :
+	  VFonts détecte les polices retirées, vous en informe, et met à jour les sélections mémorisées.
+* Modification de la présentation de l'aide par découpage en section, et ajout de titres pour celles-ci.
+* Modification du champs "Contient :" : agrandissement pour lisibilité + fond en couleur +
+  affichage en MAJUSCULES pour meilleure lisibilité + limitation à 10 caractères (pas de débordement)
+* Ajout d'un caractère 'Joker' « * » pour le champs contient afin de permettre des recherches
+  de type 'XYZ*' sur le nom des polices.
+* Le bouton [Afficher] n'est plus 'par défaut' et la touche [Entrée] vide le champ "Contient :".
+* Rajout d'une StatusBar associée à un timer afin d'informer l'utilisateur des résultats des
+  différentes opérations qu'il a demandé.
+* Redisposition de l'interface par la définition de panels imbriqués (afin d'optimiser la place).
+* Implémentation d'un code évitant le lancement d'instances multiples de VFonts (indispensable depuis
+  l'implémentation des sélections mémorisables).
+
+2008-04-08 : version 2.7.0 -> Ajout de fonctionnalité par BlueMan
+* Détection des touches [UP] et [DOWN] dans l'Edit "Contient" afin de permettre une navigation
+  facile dans la liste des polices.
+* Suppression du numéro de version et du nom des auteurs de la barre de titre de l'application.
+
+2008-04-07 : Version 2.6.0 -> Correction de bugs par BlueMan
+* Correction du bug d'affichage du nombre de polices sélectionnées lorsqu'on les sélectionne par
+ le filtre "Contient :"
+* Ajout d'un composant TXPManifest pour rendre le look de l'application aux normes XP
+* Ajout d'un TShape dans le PanelNbSel à cause du XPManisfest de façon à conserver un fond vert
+* Ajout d'un TShape dans le PanelEnCours à cause du XPManisfest de façon à conserver un fond rouge
+* Ajout de mots clés supplémentaires d'exemple dans l'aide principale du Rich Text
+* kNbMaxPolices passe à 7000 polices supportées.
+* Ajout d'un nom de fichier par défaut dans le TSaveDialog : "Rendu de polices"
+* Transfert intégral de l'aide et enrichissement de celle-ci dans un fichier externe qui est
+  chargé dans un nouveau Rich text, et en couleur !
+* Création d'une fenêtre "à propos de cette application" avec liens URL vers les sites Web des Auteurs
+  (nécessite le composant freeware "TURLLabel" qui est fourni avec les sources)
+* Ajout de la constante kNbPolicesMinPourAffichagePanneau
+* Ajout d'un menu contextuel au Rich Edit : Couper, Copier, Coller, Gras, Italique, Souligné et Biffé
+  permettant d'appliquer des styles sur tout morceau de texte du RichEdit
+* Modification du glyphe pour le bouton lancant CharMap.exe par reprise du logo original de CharMap
+* Test de l'exitence d'une instance de ChartMap avant de la lancer et activation au premier plan de
+  celle-ci, si l'utilisateur tente d'en lancer une autre. Ne fonctionne que pour le Francais.
+
+- 2008-04-02 : Version 2.5.1 : Correction de bugs et enrichissements par BlueMan
+* Correction du bug d'affichage pour les polices de type Wingdings ou autre polices graphiques
+  par récupération du CharSet par défaut pour chaque police, et stockage de ceux-c dans un tableau.
+* Rajout dans les exemples de la phrase : 'Portez ce vieux whisky au juge blond qui fume
+  afin de rester conforme à la version d'origine.
+* Rajout dans les exemples des ":" et de 2 autres exemples.
+* Modification des exemples exitants et uniformisation.
+* Rajout d'une constante pour la gestion du numéro de version qui update tous les endroits où
+  elle est affichée.
+* Rajout des informations de version dans les options du projet
+* Taille par défaut des polices mis à 22.
+* Optimisation de la rapidité d'affichage par masquage du RichEdit pendant l'affichage des polices
+* Affichage d'un panneau "Construction en cours..." pour informer l'utilisateur (utilise lorsque le
+  nombre de ploces à afficher dépasse les 80 polices.
+* Ajout de l'afficheur comptabilisant le nombre de polices sélectionnées
+* Suppression de l'afficheur du numéro de polices (celui-ci est disponible par le bouton [N°]
+
+- 2008-03-30 : Version 2.5.0 :
+Amélioration de l'interface, automatisation et ajout de nouvelles fonctionnalités par BlueMan
+Affichage automatique sur simple click sur le nom d'une ou plusieurs polices
+Ajout du bouton [Toutes]
+Ajout du bouton [Aucune]
+Ajout de la possibité d'interruption lors de l'affichage
+Ajout d'un EDIT "Contient :" de saisie, afin de pouvoir filtrer les polices sur tout ou partie de leur nom
+Ajout du bouton [Enreg. Fichier] pour sauvegarder le résultat des polices sélectionnées
+Ajout d'une dropdownliste de choix du texte à afficher avec plusieurs smaples + les codes ASCII
+Ajout de la touche [ESCAPE] pour plus simplement quitter l'application
+Ajout d'une drownDownList pour choisir les tailles de polices (au lieu d'un EDIT)
+
+---------------------------------------------------------------------------------
+
+- 2006-01-22 : version 2.0.2
+Correction du problème du style (notamment taille) des lignes
+autres que la première affichée, qui apparaissait avec la v2.0.1 uniquement
+sous Windows 2000 et XP.
+
+- 2000-02-20 : version 2.0.1
+Possibilité de se déplacer dans les échantillons (auparavant on
+ne pouvait avoir que la taille de l'écran au total).
+Copie des échantillons dans le Presse-Papiers, par exemple pour
+les intégrer dans un autre logiciel.
+Impression des échantillons.
+
+- 1998-08-31 : version 1.0
+Première version.
+
+---------------------------------------------------------------------------------
+
+Remerciements :
+***************
+
+Merci aux utilisateurs qui ont contribué à l'amélioration de ce
+logiciel, et notamment : P. Reix, C. Sérol, F. Tesio, C. Alves.
+
+
+FAQ :
+*****
+
+- Comment désinstaller ce logiciel ?
+  Il suffit d'effacer tout le répertoire dans lequel il est installé.
+
+- Puis-je copier ce logiciel ?
+  Oui, c'est un logiciel libre. Vous pouvez le diffuser librement,
+  du moment que vous respectez la General Public License (voir le
+  fichier license.txt)
+
+- Puis-je modifier/améliorer le logiciel et ensuite le revendre ?
+  Vous pouvez reprendre le code source, mais vous devrez le diffuser
+  obligatoirement sous General Public License (cf. license.txt).
+  Les fichiers sources sont fournis et nécessitent Borland Delphi
+  pour fonctionner. Vous pouvez télécharger gratuitement
+  Delphi 2005 version personnelle pour un usage non commercial.
+  Renseignements sur le site http://www.developpez.net.
+  Si vous apportez des améliorations à ce logiciel, merci de m'en
+  informer (ocado@chez.com).
+
+- Que dois-je faire si je découvre un bogue dans vfonts ?
+  Merci de le signaler :
+  - ocado@chez.com
+  - www.blueman.name à partir de la version 2.5.0.
+
+- Quels sont les autres logiciels freeware développés par Olivier Cado ?
+  Le plus connu est Super Bloc-notes, un éditeur de texte sympathique
+  pour Windows, comblant les lacunes du bloc-notes fourni en standard.
+  Il y a aussi ConvHtml, Convansel et Random Background.
+  Tous ces logiciels sont téléchargeables gratuitement sur mon site web
+  dont l'adresse figure au début de ce document.
+
+
+O.C. 22/01/2006 et BlueMan le 16/04/2008.
